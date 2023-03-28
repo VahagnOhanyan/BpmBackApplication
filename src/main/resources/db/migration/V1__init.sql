@@ -1,4 +1,4 @@
-CREATE table pages
+create table pages
 (
     id             bigint primary key AUTO_INCREMENT,
     name           varchar(100),
@@ -7,9 +7,9 @@ CREATE table pages
 
 );
 /*create sequence sq_pages_id start with 1 increment by 1;*/
-insert into pages VALUES(1, 'cbr','https://www.cbr.ru/','//div[@class=''main-indicator_rate''][2]/div[contains(@class,''mono-num'')][2]/text()');
+insert into pages values(1, 'federalreserve','https://www.federalreserve.gov/','//*[@id="content"]/div[3]/div[1]/ul/li[1]/p/a/text()');
 
-CREATE table users
+create table users
 (
     login       varchar(100) primary key,
     password    varchar(100) not null,
@@ -20,19 +20,19 @@ CREATE table users
 
 );
 insert into users
-VALUES ('vahagn', '$2a$10$O07VKeKQHI5XOJjiWlqfwu/6kcrWMOfQAFdHicMYqilEqMn6MASs6', 'vahagn', 'ohanyan', '433547978', 2);
+values ('vahagn', '$2a$10$O07VKeKQHI5XOJjiWlqfwu/6kcrWMOfQAFdHicMYqilEqMn6MASs6', 'vahagn', 'ohanyan', '433547978', 2);
 
-CREATE table subscriptions
+create table subscriptions
 (
     id         bigint primary key AUTO_INCREMENT,
     user_login varchar(100) not null,
     page_id    bigint       not null
 );
-insert into subscriptions VALUES(1, 'vahagn', 1);
+insert into subscriptions values(1, 'vahagn', 1);
 /*create sequence sq_subscriptions_id start with 1 increment by 1;*/
 
 
-CREATE table parsing_results
+create table parsing_results
 (
     id                bigint primary key AUTO_INCREMENT,
     page_id           bigint not null,
@@ -43,19 +43,19 @@ CREATE table parsing_results
 );
 /*create sequence sq_parsing_results_id start with 1 increment by 1;*/
 
-CREATE table roles
+create table roles
 (
     role_id   bigint primary key AUTO_INCREMENT,
     role_name varchar(2000) not null
 );
 /*create sequence sq_roles_id start with 1 increment by 1;*/
 insert into roles
-VALUES (1, 'USER');
+values (1, 'USER');
 insert into roles
-VALUES (2, 'ADMIN');
+values (2, 'ADMIN');
 
 
-CREATE table privileges
+create table privileges
 (
     privilege_id   bigint primary key AUTO_INCREMENT,
     privilege_name varchar(2000) not null
@@ -64,14 +64,24 @@ CREATE table privileges
 /*create sequence sq_privileges_id start with 1 increment by 1;*/
 
 insert into privileges
-VALUES (1, 'CanUpdatePassword');
+values (1, 'CanUpdatePassword');
 
 
-CREATE table user_privileges
+create table user_privileges
 (
     user_login   varchar(2000) not null,
     privilege_id bigint
 
 );
 insert into user_privileges
-VALUES ('vahagn', '1');
+values ('vahagn', '1');
+
+
+#drop table parsing_results
+#drop table subscriptions
+#drop table privileges
+#drop table roles
+#drop table user_privileges
+#drop table users
+#drop table pages
+#truncate flyway_schema_history

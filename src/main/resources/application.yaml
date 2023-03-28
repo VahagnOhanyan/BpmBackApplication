@@ -3,24 +3,26 @@ server:
 
 spring:
   datasource:
- #   url: jdbc:h2:./target/local_base;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE;DB_CLOSE_ON_EXIT=FALSE
-   # username: sa
-   # password: sa
+    #   url: jdbc:h2:./target/local_base;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE;DB_CLOSE_ON_EXIT=FALSE
+    # username: sa
+    # password: sa
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/bpm-mysql?serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/bpm-mysql?serverTimezone=UTC&&nullCatalogMeansCurrent=true
     username: root
     password: 12345
   kafka:
-     consumer:
-       bootstrap-servers: localhost:29092
-       group-id: group-id
-       auto-offset-reset: earliest
-       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-     producer:
-       bootstrap-servers: localhost:29092
-       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: group-id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        allow.auto.create.topics: true
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
 bot:
   username: epicac
   token: 5326743927:AAER5ZNL1-iqhrI9Yw9U4Y5VNzWEMHrLTqw
