@@ -2,6 +2,7 @@ package ru.ohanyan.bpm.adapter.dto;
 
 import lombok.*;
 
+import java.util.Collections;
 import java.util.Set;
 
 /**
@@ -18,6 +19,6 @@ public class UserDto {
     private String firstName;
     private String lastName;
     private String role;
-    private Set<String> privileges;
+    private Set<String> privileges = Collections.emptySet();
     private String telegramId;
 }

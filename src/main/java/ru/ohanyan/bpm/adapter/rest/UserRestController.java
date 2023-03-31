@@ -19,14 +19,14 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@CrossOrigin("http://localhost:3006")
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/bpm/admin/users")
 public class UserRestController {
     private final UserService userService;
     private final SubscriptionService subscriptionService;
     private final SubscriptionRepository subscriptionRepository;
 
-    @PreAuthorize("hasRole('ADMIN')")
+  //  @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<String> createUser(@RequestBody UserDto user) {
         try {

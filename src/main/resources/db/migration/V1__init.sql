@@ -75,13 +75,11 @@ create table user_privileges
 );
 insert into user_privileges
 values ('vahagn', '1');
-
-
-#drop table parsing_results
-#drop table subscriptions
-#drop table privileges
-#drop table roles
-#drop table user_privileges
-#drop table users
-#drop table pages
-#truncate flyway_schema_history
+/*drop table parsing_results;
+drop table subscriptions;
+drop table privileges;
+drop table roles;
+drop table user_privileges;
+drop table users;
+drop table pages;
+truncate flyway_schema_history;*/

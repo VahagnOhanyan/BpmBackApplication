@@ -46,6 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.headers().frameOptions().disable().and().cors().and().csrf()
                 .disable().authorizeRequests()
+                //.anyRequest().permitAll();
                 .antMatchers("/bpm/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
