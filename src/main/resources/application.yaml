@@ -25,7 +25,7 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
 bot:
   username: epicac
-  token: 5326743927:AAER5ZNL1-iqhrI9Yw9U4Y5VNzWEMHrLTqw
+  token:
 
 camunda:
   bpm:
